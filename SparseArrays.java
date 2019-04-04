@@ -1,3 +1,8 @@
+/*
+There is a collection of input strings and a collection of query strings. For each query string, determine how many times it occurs in the list of input strings.
+
+For example, given input  and , we find  instances of ',  of '' and  of ''. For each query, we add an element to our return array, .
+*/
 import java.io.*;
 import java.math.*;
 import java.security.*;
@@ -8,18 +13,20 @@ import java.util.regex.*;
 
 public class SparseArrays {
 
-    // Complete the matchingStrings function below.
+    //both strings and queries array contains String values
+    //compare every element of queries array with strings array elements and if both the array elements matches we should increment the count value
+    //if strings array size reaches the end store the count in new output array and make count=0...finally return output array 
     static int[] matchingStrings(String[] strings, String[] queries) {
-        int output[]=new int[queries.length];
-        int c=0;
-        for(int i=0;i<queries.length;i++){
-            c=0;
-            for(int j=0;j<strings.length;j++){
-                if(queries[i].equals(strings[j])){
-                    c=c+1;
+        int output[] = new int[queries.length];
+        int c = 0; //count variable
+        for (int i = 0; i < queries.length; i++) {
+            c = 0;
+            for (int j = 0; j < strings.length; j++) {
+                if (queries[i].equals(strings[j])) {
+                    c = c + 1;
                 }
             }
-            output[i]=c;
+            output[i] = c;
         }
         return output;
     }
